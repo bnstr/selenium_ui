@@ -3,7 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from config.config import IMPLICIT_WAIT
-from utils.page_factory import PageFactory
 
 class BaseTest(unittest.TestCase):
     def setUp(self):
@@ -18,7 +17,6 @@ class BaseTest(unittest.TestCase):
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
 
         self.driver.implicitly_wait(IMPLICIT_WAIT)
-        self.page_factory = PageFactory(self.driver)
 
     def tearDown(self):
         if self.driver:
