@@ -1,0 +1,8 @@
+{
+  "base_url": "http://prod.example.com",
+  "credentials": {
+    "username": "prod_user",
+    "password": "prod_pass"
+  },
+  "other_settings": {}
+}

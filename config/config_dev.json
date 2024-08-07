@@ -1,0 +1,33 @@
+
+{
+    "base_url": "http://dev.example.com",
+    "credentials": {
+        "username": "dev_user",
+        "password": "dev_pass"
+    },
+    "other_settings": {"IMPLICIT_WAIT": 10}
+}
+
+/**
+configuration loader will read the correct file based on the environment variable, e.g ENV=development
+├── config/
+│   ├── config_dev.json
+│   ├── config_test.json
+│   ├── config_prod.json
+├── data/
+│   ├── test_data_dev.json
+│   ├── test_data_test.json
+│   ├── test_data_prod.json
+├── src/
+│   ├── __init__.py
+│   ├── config_loader.py   >>>>>>>>>>  ConfigLoader
+│   ├── test_data_manager.py
+
+
+//example ussage
+config_loader = ConfigLoader()
+
+ **/
+
+
+

@@ -1,23 +1,30 @@
+# tests/test_suite.py
 import unittest
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from config.config import IMPLICIT_WAIT
+
+from selenium_ui.src.config_loader import ConfigLoader
+from selenium_ui.src.test_data_manager import TestDataManager
+
 
 class BaseTest(unittest.TestCase):
-    def setUp(self):
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--no-sandbox")
-        chrome_options.add_argument("--disable-dev-shm-usage")
+    @classmethod
+    def setUpClass(cls):
+        # Initialize configuration loader and test data manager
+        cls.config_loader = ConfigLoader()
+        cls.test_data_manager = TestDataManager(os.getenv('ENV', 'development'))
 
-        # Specify the Chrome version here (replace XX with your version number)
-        # chrome_version = "126"
-        # service = Service(ChromeDriverManager(version=chrome_version).install())
-        service = Service(executable_path='/Users/daniel/Downloads/chromedriver')
-        self.driver = webdriver.Chrome(service=service, options=chrome_options)
+        # Load configuration and test data
+        cls.base_url = cls.config_loader.get('base_url')
+        cls.credentials = cls.config_loader.get('credentials')
+        cls.test_data = cls.test_data_manager.get_test_data('sample_data')
 
-        self.driver.implicitly_wait(IMPLICIT_WAIT)
+        # Initialize WebDriver
+        cls.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+        cls.driver.get(cls.base_url)  # Use the base URL from configuration
 
-    def tearDown(self):
-        if self.driver:
-            self.driver.quit()
+
+    @classmethod
+    def tearDownClass(cls):
+        print("Tearing down class...")
+        cls.driver.quit()
+
+

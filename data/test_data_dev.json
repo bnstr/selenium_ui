@@ -1,0 +1,26 @@
+{
+    "Steve Rodgers": {"id": 101, "rating": 85},
+    "Nick Fury": {"id": 102, "rating": 75},
+    "Carol Danvers": {"id": 103, "rating": 100},
+    "Ada Wells": {"id": 103, "rating": 88}
+}
+
+/**
+configuration loader will read the correct file based on the environment variable, e.g ENV=development
+├── config/
+│   ├── config_dev.json
+│   ├── config_test.json
+│   ├── config_prod.json
+├── data/
+│   ├── test_data_dev.json
+│   ├── test_data_test.json
+│   ├── test_data_prod.json
+├── src/
+│   ├── __init__.py
+│   ├── config_loader.py
+│   ├── test_data_manager.py  >>>>>>>>>> class TestDataManager
+
+
+//example ussage, Initialize test data manager
+test_data_manager = TestDataManager(os.getenv('ENV', 'development'))
+ **/

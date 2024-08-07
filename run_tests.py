@@ -1,5 +1,5 @@
 import unittest
-from tests.test_google_search import GoogleSearchTest
+from tests.sample_test import GoogleSearchTest
 
 if __name__ == "__main__":
     test_suite = unittest.TestLoader().loadTestsFromTestCase(GoogleSearchTest)
