@@ -18,13 +18,14 @@ class BaseTest(unittest.TestCase):
         cls.test_data = cls.test_data_manager.get_test_data('sample_data')
 
         # Initialize WebDriver
-        cls.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-        cls.driver.get(cls.base_url)  # Use the base URL from configuration
+        cls.browser_type = DriverType.CHROME  # or DriverType.FIREFOX, DriverType.EDGE, etc.
+        cls.driver_manager = DriverManagerFactory.get_manager(cls.browser_type)
+        cls.driver = cls.driver_manager.get_driver()
 
 
     @classmethod
     def tearDownClass(cls):
         print("Tearing down class...")
-        cls.driver.quit()
+        cls.driver_manager.quit()
 
 

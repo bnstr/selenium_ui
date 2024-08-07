@@ -17,8 +17,8 @@ configuration loader will read the correct file based on the environment variabl
 │   ├── test_data_prod.json
 ├── src/
 │   ├── __init__.py
-│   ├── config_loader.py
-│   ├── test_data_manager.py  >>>>>>>>>> class TestDataManager
+│   ├── driver_manager.py
+│   ├── driver_manager_factory.py  >>>>>>>>>> class TestDataManager
 
 
 //example ussage, Initialize test data manager

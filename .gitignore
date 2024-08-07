@@ -20,8 +20,6 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Selenium WebDriver binaries
-drivers/
 
 # Logs
 *.log
