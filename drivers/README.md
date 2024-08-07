@@ -16,8 +16,6 @@ Implementation Steps:
 ```
 project_root/
 ├── config/
-│   ├── config.yaml
-│   └── __init__.py
 ├── drivers/
 │   ├── __init__.py
 │   ├── driver_manager_factory.py           # DriverManagerFactory class
@@ -25,6 +23,7 @@ project_root/
 │   ├── chrome_driver_manager.py            # ChromeDriverManager class
 │   ├── firefox_driver_manager.py           # FirefoxDriverManager class
 │   ├── driver_type.py                      # DriverType enum
+├── pages/
 ```
 
 

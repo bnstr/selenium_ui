@@ -1,6 +1,8 @@
 # tests/test_suite.py
 import unittest
 
+from selenium_ui.drivers.driver_manager_factory import DriverManagerFactory
+from selenium_ui.drivers.driver_type import DriverType
 from selenium_ui.src.config_loader import ConfigLoader
 from selenium_ui.src.test_data_manager import TestDataManager
 
